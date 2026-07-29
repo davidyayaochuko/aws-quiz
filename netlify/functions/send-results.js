@@ -93,7 +93,8 @@ exports.handler = async (event) => {
   }
 
   const fromEmail =
-    process.env.RESEND_FROM_EMAIL || "AWS Practice Exams <onboarding@resend.dev>";
+    process.env.RESEND_FROM_EMAIL ||
+    "AWS Practice Exams <noreply@quiz.davidyayaochuko.com>";
 
   const response = await fetch("https://api.resend.com/emails", {
     method: "POST",

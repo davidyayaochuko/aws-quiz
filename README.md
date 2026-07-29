@@ -23,9 +23,7 @@ Set these in **Site settings → Environment variables**:
 | Variable | Purpose |
 |---|---|
 | `RESEND_API_KEY` | API key from [resend.com](https://resend.com) |
-| `RESEND_FROM_EMAIL` | Optional verified sender, e.g. `AWS Practice Exams <quiz@yourdomain.com>` |
-
-Until you verify a custom domain in Resend, you can use `onboarding@resend.dev` and send only to the email address on your Resend account.
+| `RESEND_FROM_EMAIL` | Verified sender, e.g. `AWS Practice Exams <noreply@quiz.davidyayaochuko.com>` |
 
 ## Files
 
