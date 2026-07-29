@@ -29,11 +29,13 @@ Then open:
 
 ## Publish and embed in Notion
 
-This site is set up for **GitHub Pages** (deploy from the `main` branch root).
+**Live URL:** https://davidyayaochuko.github.io/thriveafrica-aws-quiz/
 
-After the Pages URL is live:
+Deployed with GitHub Pages from the `main` branch root.
 
-1. Copy the public HTTPS URL (`https://<user>.github.io/thriveafrica-aws-quiz/`).
+To embed in Notion:
+
+1. Copy the live URL above.
 2. Open the relevant Notion page.
 3. Type `/embed`.
 4. Paste the quiz URL.
