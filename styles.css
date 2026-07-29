@@ -92,14 +92,17 @@ h3,
 
 .brand-mark {
   display: grid;
-  width: 46px;
+  min-width: 46px;
   height: 46px;
   place-items: center;
+  padding: 0 0.55rem;
   border-radius: 14px;
   color: var(--green-950);
   background: var(--gold);
   font-family: "Manrope", sans-serif;
+  font-size: 0.78rem;
   font-weight: 800;
+  letter-spacing: 0.04em;
 }
 
 .brand strong,
@@ -417,8 +420,12 @@ main {
 
 #student-form label {
   display: block;
-  margin-bottom: 0.55rem;
+  margin: 0.9rem 0 0.55rem;
   font-weight: 700;
+}
+
+#student-form label:first-of-type {
+  margin-top: 0;
 }
 
 .name-row {
@@ -427,7 +434,9 @@ main {
   gap: 0.75rem;
 }
 
-input[type="text"] {
+input[type="text"],
+input[type="email"] {
+  width: 100%;
   min-width: 0;
   padding: 0.9rem 1rem;
   border: 1px solid #c8d3cd;
@@ -436,7 +445,8 @@ input[type="text"] {
   background: var(--white);
 }
 
-input[type="text"]:focus {
+input[type="text"]:focus,
+input[type="email"]:focus {
   border-color: var(--green-700);
 }
 
@@ -444,6 +454,21 @@ input[type="text"]:focus {
   margin: 0.6rem 0 0;
   color: var(--muted);
   font-size: 0.8rem;
+}
+
+.email-status {
+  margin: 0.75rem 0 0;
+  color: var(--green-800);
+  font-size: 0.95rem;
+  font-weight: 600;
+}
+
+.email-status.is-pending {
+  color: var(--muted);
+}
+
+.email-status.is-error {
+  color: var(--red);
 }
 
 .primary-button,
@@ -857,8 +882,9 @@ input[type="text"]:focus {
   }
 
   .brand-mark {
-    width: 40px;
+    min-width: 40px;
     height: 40px;
+    font-size: 0.7rem;
   }
 
   .header-progress {

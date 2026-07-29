@@ -1,62 +1,41 @@
-# ThriveAfrica AWS Quiz Hub
+# AWS Cloud Practitioner Practice Exams
 
-A responsive, zero-dependency quiz interface for AWS Cloud Practitioner Weeks 1–3.
+Personal practice quizzes for AWS Certified Cloud Practitioner (CLF-C02), with immediate feedback and emailed results.
 
-## Included
+## Live site
 
-- 20 fresh multiple-choice questions per week
-- Required radio-button answers
-- Immediate score after submission
-- Correct/incorrect status for every question
-- Student answer, correct answer, and explanation
-- Incorrect-answer review filter
-- Best score saved in the student's browser
-- Mobile and desktop layouts
+Hosted on Netlify (auto-deploys from `main`):
 
-## Run locally
+https://aws-cloud-practitioner-quiz.netlify.app
 
-Open `index.html` in a browser.
-
-For a local web server, run this command inside the project folder:
+## Local development
 
 ```powershell
-python -m http.server 8080
+npx netlify dev
 ```
 
-Then open:
+Open the URL Netlify prints (usually `http://localhost:8888`).
 
-`http://localhost:8080`
+## Environment variables (Netlify)
 
-## Publish and embed in Notion
+Set these in **Site settings → Environment variables**:
 
-**Live URL:** https://davidyayaochuko.github.io/thriveafrica-aws-quiz/
+| Variable | Purpose |
+|---|---|
+| `RESEND_API_KEY` | API key from [resend.com](https://resend.com) |
+| `RESEND_FROM_EMAIL` | Optional verified sender, e.g. `AWS Practice Exams <quiz@yourdomain.com>` |
 
-Deployed with GitHub Pages from the `main` branch root.
-
-To embed in Notion:
-
-1. Copy the live URL above.
-2. Open the relevant Notion page.
-3. Type `/embed`.
-4. Paste the quiz URL.
-5. Resize the embedded block.
-
-## Current data behavior
-
-The student's name and best scores are stored only in that browser using `localStorage`. There is no login, backend, or central tutor dashboard in this version.
-
-If centralized student reporting is needed later, connect the app to a database and authentication provider.
+Until you verify a custom domain in Resend, you can use `onboarding@resend.dev` and send only to the email address on your Resend account.
 
 ## Files
 
-- `index.html` — page structure and templates
-- `styles.css` — ThriveAfrica visual design
+- `index.html` — page structure
+- `styles.css` — layout and visuals
 - `questions.js` — Week 1–3 question banks
-- `app.js` — quiz flow, scoring, feedback, filtering, and local progress
+- `app.js` — quiz flow, scoring, feedback, email trigger
+- `netlify/functions/send-results.js` — emails result summary via Resend
 
 ## Editing questions
-
-Each question in `questions.js` has this structure:
 
 ```js
 {

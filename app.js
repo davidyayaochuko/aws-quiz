@@ -6,11 +6,13 @@
   const progressLabel = document.querySelector("#progress-label");
   const progressTrack = document.querySelector(".progress-track");
   const progressFill = document.querySelector("#progress-fill");
+  const STORAGE_PREFIX = "aws-quiz-best-";
 
   const state = {
     week: null,
     questions: [],
     studentName: "",
+    studentEmail: "",
     answers: new Map(),
     results: null
   };
@@ -41,13 +43,13 @@
   };
 
   const getBestScore = (weekId) => {
-    const value = Number(localStorage.getItem(`thriveafrica-best-${weekId}`));
+    const value = Number(localStorage.getItem(`${STORAGE_PREFIX}${weekId}`));
     return Number.isFinite(value) ? value : 0;
   };
 
   const saveBestScore = (weekId, score) => {
     const best = Math.max(getBestScore(weekId), score);
-    localStorage.setItem(`thriveafrica-best-${weekId}`, String(best));
+    localStorage.setItem(`${STORAGE_PREFIX}${weekId}`, String(best));
     return best;
   };
 
@@ -150,11 +152,13 @@
     view.querySelector("#intro-title").textContent = week.title;
     view.querySelector("#intro-description").textContent = week.description;
 
-    const input = view.querySelector("#student-name");
-    input.value = state.studentName;
+    const nameInput = view.querySelector("#student-name");
+    const emailInput = view.querySelector("#student-email");
+    nameInput.value = state.studentName;
+    emailInput.value = state.studentEmail;
 
     setView(view);
-    input.focus();
+    nameInput.focus();
 
     document
       .querySelector("[data-action='home']")
@@ -162,12 +166,15 @@
 
     document.querySelector("#student-form").addEventListener("submit", (event) => {
       event.preventDefault();
-      const name = new FormData(event.currentTarget).get("studentName").trim();
-      if (!name) {
-        input.focus();
+      const formData = new FormData(event.currentTarget);
+      const name = String(formData.get("studentName") || "").trim();
+      const email = String(formData.get("studentEmail") || "").trim();
+      if (!name || !email) {
+        (name ? emailInput : nameInput).focus();
         return;
       }
       state.studentName = name;
+      state.studentEmail = email;
       startQuiz();
     });
   };
@@ -245,6 +252,53 @@
     document.querySelector("#quiz-form").addEventListener("submit", submitQuiz);
   };
 
+  const buildEmailPayload = () => {
+    const { reviewed, correctCount, percent } = state.results;
+    return {
+      name: state.studentName,
+      email: state.studentEmail,
+      week: state.week.week,
+      title: state.week.title,
+      percent,
+      correctCount,
+      total: reviewed.length,
+      answers: reviewed.map((item, index) => ({
+        number: index + 1,
+        question: item.question.question,
+        correct: item.correct,
+        selected: item.question.options[item.selected],
+        correctAnswer: item.question.options[item.question.answer],
+        explanation: item.question.explanation
+      }))
+    };
+  };
+
+  const emailResults = async (statusEl) => {
+    if (!statusEl) return;
+
+    statusEl.className = "email-status is-pending";
+    statusEl.textContent = `Sending results to ${state.studentEmail}…`;
+
+    try {
+      const response = await fetch("/.netlify/functions/send-results", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(buildEmailPayload())
+      });
+      const data = await response.json().catch(() => ({}));
+      if (!response.ok) {
+        throw new Error(data.error || "Email could not be sent.");
+      }
+      statusEl.className = "email-status";
+      statusEl.textContent = `Results emailed to ${state.studentEmail}.`;
+    } catch (error) {
+      statusEl.className = "email-status is-error";
+      statusEl.textContent =
+        error.message ||
+        "Could not email results. Your on-screen review still shows every answer.";
+    }
+  };
+
   const submitQuiz = (event) => {
     event.preventDefault();
     const unanswered = state.questions.filter(
@@ -303,7 +357,7 @@
     return {
       heading: "Keep building.",
       message:
-        "Review the explanations below, revisit the study notes, and try the quiz again."
+        "Review the explanations below, revisit your study notes, and try the quiz again."
     };
   };
 
@@ -376,6 +430,7 @@
     reviewed.forEach((item, index) => reviewList.append(createReviewCard(item, index)));
 
     setView(view);
+    emailResults(document.querySelector("#email-status"));
 
     document
       .querySelector("[data-action='home']")
