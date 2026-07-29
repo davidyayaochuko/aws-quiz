@@ -1,0 +1,194 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="ThriveAfrica AWS Cloud Practitioner practice quizzes with immediate feedback."
+    />
+    <title>ThriveAfrica AWS Quiz Hub</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="#" aria-label="ThriveAfrica quiz home">
+        <span class="brand-mark">TA</span>
+        <span>
+          <strong>ThriveAfrica</strong>
+          <small>AWS Cloud Practitioner</small>
+        </span>
+      </a>
+      <div class="header-progress" id="header-progress" hidden>
+        <span id="progress-label">Question 1 of 20</span>
+        <div
+          class="progress-track"
+          role="progressbar"
+          aria-label="Quiz completion"
+          aria-valuemin="0"
+          aria-valuemax="100"
+          aria-valuenow="0"
+        >
+          <span id="progress-fill"></span>
+        </div>
+      </div>
+    </header>
+
+    <main id="app" tabindex="-1"></main>
+
+    <footer class="site-footer">
+      <p>Independent study material by ThriveAfrica. AWS is a trademark of Amazon.com, Inc.</p>
+    </footer>
+
+    <template id="dashboard-template">
+      <section class="dashboard">
+        <div class="hero">
+          <div class="hero-copy">
+            <p class="eyebrow">AWS Cloud Practitioner quiz hub</p>
+            <h1>Learn from every answer.</h1>
+            <p class="hero-description">
+              Choose a week, complete 20 fresh questions, and receive immediate
+              explanations for every answer after submitting.
+            </p>
+          </div>
+          <div class="hero-stat" aria-label="Quiz format">
+            <strong>3</strong>
+            <span>weekly quizzes</span>
+            <div></div>
+            <strong>60</strong>
+            <span>fresh questions</span>
+          </div>
+        </div>
+
+        <div class="dashboard-heading">
+          <div>
+            <p class="eyebrow">Available now</p>
+            <h2>Select a week</h2>
+          </div>
+          <p>Your best score is saved on this device.</p>
+        </div>
+        <div class="week-grid" id="week-grid"></div>
+      </section>
+    </template>
+
+    <template id="intro-template">
+      <section class="quiz-intro">
+        <button class="text-button back-button" type="button" data-action="home">
+          <span aria-hidden="true">←</span> All weeks
+        </button>
+        <div class="intro-card">
+          <span class="week-chip" id="intro-week">Week 1</span>
+          <h1 id="intro-title"></h1>
+          <p id="intro-description"></p>
+          <div class="quiz-facts">
+            <div><strong>20</strong><span>questions</span></div>
+            <div><strong>70%</strong><span>target score</span></div>
+            <div><strong>Instant</strong><span>feedback</span></div>
+          </div>
+          <form id="student-form">
+            <label for="student-name">Your name</label>
+            <div class="name-row">
+              <input
+                id="student-name"
+                name="studentName"
+                type="text"
+                autocomplete="name"
+                maxlength="80"
+                placeholder="Enter your full name"
+                required
+              />
+              <button class="primary-button" type="submit">Start quiz</button>
+            </div>
+            <p class="privacy-note">
+              Your name and score remain in this browser; nothing is sent to a server.
+            </p>
+          </form>
+        </div>
+      </section>
+    </template>
+
+    <template id="quiz-template">
+      <section class="quiz-shell">
+        <div class="quiz-topline">
+          <button class="text-button" type="button" data-action="exit">Exit quiz</button>
+          <span class="week-chip" id="quiz-week"></span>
+        </div>
+        <form id="quiz-form" novalidate>
+          <div id="question-list"></div>
+          <div class="submit-panel">
+            <div>
+              <strong>Ready to check your work?</strong>
+              <p id="answer-status">Answer all 20 questions before submitting.</p>
+            </div>
+            <button class="primary-button" id="submit-quiz" type="submit">
+              Submit quiz
+            </button>
+          </div>
+        </form>
+      </section>
+    </template>
+
+    <template id="results-template">
+      <section class="results-shell">
+        <div class="results-hero">
+          <div class="score-ring" id="score-ring">
+            <strong id="score-percent">0%</strong>
+            <span id="score-fraction">0 / 20</span>
+          </div>
+          <div>
+            <p class="eyebrow" id="results-week"></p>
+            <h1 id="results-heading"></h1>
+            <p id="results-message"></p>
+          </div>
+        </div>
+
+        <div class="results-summary">
+          <div class="summary-item correct-summary">
+            <span aria-hidden="true">✓</span>
+            <div><strong id="correct-count">0</strong><small>Correct</small></div>
+          </div>
+          <div class="summary-item incorrect-summary">
+            <span aria-hidden="true">×</span>
+            <div><strong id="incorrect-count">0</strong><small>Review</small></div>
+          </div>
+          <div class="summary-item">
+            <span aria-hidden="true">★</span>
+            <div><strong id="best-score">0%</strong><small>Best score</small></div>
+          </div>
+        </div>
+
+        <div class="result-actions">
+          <button class="secondary-button" type="button" data-action="home">
+            Choose another week
+          </button>
+          <button class="primary-button" type="button" data-action="retry">
+            Try fresh attempt
+          </button>
+        </div>
+
+        <div class="review-heading">
+          <div>
+            <p class="eyebrow">Answer review</p>
+            <h2>Understand every response</h2>
+          </div>
+          <div class="review-filter" role="group" aria-label="Filter reviewed answers">
+            <button class="filter-button active" type="button" data-filter="all">All</button>
+            <button class="filter-button" type="button" data-filter="incorrect">
+              Incorrect only
+            </button>
+          </div>
+        </div>
+        <div id="review-list"></div>
+      </section>
+    </template>
+
+    <script src="./questions.js"></script>
+    <script src="./app.js"></script>
+  </body>
+</html>
