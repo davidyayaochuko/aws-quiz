@@ -703,5 +703,285 @@ window.QUIZ_DATA = [
           "AWS Snow Family devices support offline data transfer when network bandwidth is insufficient for a practical online migration."
       }
     ]
+  },
+  {
+    id: "week-4",
+    week: 4,
+    title: "Compute on AWS",
+    description:
+      "Practice EC2 foundations, instance families, purchasing options, load balancing, Auto Scaling, Lambda, and containers.",
+    topics: ["EC2", "Pricing", "ELB & Auto Scaling", "Lambda & containers"],
+    questions: [
+      {
+        id: "w4q1",
+        question:
+          "A team needs resizable virtual servers where it controls the guest operating system and installed software. Which service fits?",
+        options: [
+          "Amazon EC2",
+          "Amazon S3",
+          "Amazon Route 53",
+          "AWS Budgets"
+        ],
+        answer: 0,
+        explanation:
+          "Amazon EC2 provides virtual machines (instances). Customers manage the guest OS, patches, and applications on those instances."
+      },
+      {
+        id: "w4q2",
+        question:
+          "Before launching an EC2 instance, an engineer chooses a template that already includes an operating system and baseline software. What is that template called?",
+        options: [
+          "A security group",
+          "An Amazon Machine Image (AMI)",
+          "A placement group",
+          "A target group"
+        ],
+        answer: 1,
+        explanation:
+          "An AMI is the launch template for an instance. It defines the starting OS and can include software and configuration."
+      },
+      {
+        id: "w4q3",
+        question:
+          "At launch, an administrator wants a small script to install a web server automatically. Which EC2 feature supports this?",
+        options: [
+          "Reserved Instance purchase",
+          "Elastic IP only",
+          "User data",
+          "CloudFront distribution"
+        ],
+        answer: 2,
+        explanation:
+          "User data can run startup scripts during instance boot to install packages and configure services."
+      },
+      {
+        id: "w4q4",
+        question:
+          "A development website needs balanced CPU, memory, and networking with no extreme resource demand. Which instance-family category is the best first choice?",
+        options: [
+          "Accelerated computing",
+          "Storage optimized",
+          "Memory optimized",
+          "General purpose"
+        ],
+        answer: 3,
+        explanation:
+          "General-purpose families are designed for balanced workloads such as many web and development servers."
+      },
+      {
+        id: "w4q5",
+        question:
+          "A modeling job spends almost all of its time on CPU calculations and has ordinary memory needs. Which family is most appropriate?",
+        options: [
+          "Compute optimized",
+          "Memory optimized",
+          "Storage optimized",
+          "General purpose"
+        ],
+        answer: 0,
+        explanation:
+          "Compute-optimized instances prioritize CPU performance for calculation-heavy workloads."
+      },
+      {
+        id: "w4q6",
+        question:
+          "An application keeps a large working dataset in memory for low-latency lookups. Which family category fits best?",
+        options: [
+          "Compute optimized",
+          "Memory optimized",
+          "General purpose",
+          "Accelerated computing"
+        ],
+        answer: 1,
+        explanation:
+          "Memory-optimized instances provide large memory capacity for in-memory databases and caches."
+      },
+      {
+        id: "w4q7",
+        question:
+          "A pilot project will run for two weeks with uncertain traffic and no willingness to commit for a year. Which purchasing option fits?",
+        options: [
+          "Reserved Instances",
+          "Dedicated Hosts",
+          "On-Demand Instances",
+          "Compute Savings Plans only"
+        ],
+        answer: 2,
+        explanation:
+          "On-Demand has no long-term commitment and suits short-term or unpredictable usage."
+      },
+      {
+        id: "w4q8",
+        question:
+          "A company can forecast consistent compute spend and wants discounts that can apply across eligible EC2, Fargate, and Lambda usage. Which option is a strong match?",
+        options: [
+          "Spot Instances",
+          "Compute Savings Plans",
+          "Dedicated Instances only",
+          "Application Load Balancer"
+        ],
+        answer: 1,
+        explanation:
+          "Compute Savings Plans commit to a consistent $/hour of compute usage and can cover multiple eligible compute services."
+      },
+      {
+        id: "w4q9",
+        question:
+          "Overnight video-encoding jobs can checkpoint and resume if a worker stops. Which purchasing option can reduce cost the most for this pattern?",
+        options: [
+          "Spot Instances",
+          "Dedicated Hosts",
+          "On-Demand Capacity Reservations only",
+          "Reserved Instances for databases that cannot restart"
+        ],
+        answer: 0,
+        explanation:
+          "Spot uses spare capacity at a discount and is appropriate for fault-tolerant, interruptible workloads."
+      },
+      {
+        id: "w4q10",
+        question:
+          "Compliance requires visibility into the physical server and use of existing per-socket licenses. Which option is most relevant?",
+        options: [
+          "Spot Instances",
+          "AWS Lambda",
+          "Dedicated Hosts",
+          "Amazon ECR"
+        ],
+        answer: 2,
+        explanation:
+          "Dedicated Hosts provide an entire physical host, which supports some server-bound licensing and isolation needs."
+      },
+      {
+        id: "w4q11",
+        question:
+          "Customers reach one DNS name, and traffic must be spread across several healthy application servers. Which service’s primary job is this?",
+        options: [
+          "AWS Auto Scaling",
+          "Elastic Load Balancing",
+          "Amazon ECR",
+          "AWS Batch"
+        ],
+        answer: 1,
+        explanation:
+          "Elastic Load Balancing distributes incoming traffic across healthy registered targets."
+      },
+      {
+        id: "w4q12",
+        question:
+          "A microservices app must route HTTPS requests by URL path to different target groups. Which load balancer is designed for that?",
+        options: [
+          "Network Load Balancer",
+          "Gateway Load Balancer",
+          "Application Load Balancer",
+          "Classic only with UDP"
+        ],
+        answer: 2,
+        explanation:
+          "Application Load Balancers operate at Layer 7 and support HTTP/HTTPS host and path-based routing."
+      },
+      {
+        id: "w4q13",
+        question:
+          "A gaming backend needs ultra-low latency TCP traffic handling at very high connection rates. Which load balancer is commonly chosen?",
+        options: [
+          "Application Load Balancer",
+          "Network Load Balancer",
+          "Gateway Load Balancer",
+          "AWS Elastic Beanstalk"
+        ],
+        answer: 1,
+        explanation:
+          "Network Load Balancers operate at Layer 4 and are built for high-performance TCP/UDP workloads."
+      },
+      {
+        id: "w4q14",
+        question:
+          "An Auto Scaling group is configured with minimum 2, desired 4, and maximum 10. How many instances does it try to keep running initially?",
+        options: ["2", "4", "10", "16"],
+        answer: 1,
+        explanation:
+          "Desired capacity is the count the group attempts to maintain unless scaling policies change it within min/max bounds."
+      },
+      {
+        id: "w4q15",
+        question:
+          "Which statement correctly separates Elastic Load Balancing from EC2 Auto Scaling?",
+        options: [
+          "ELB changes instance count; Auto Scaling stores AMIs",
+          "ELB distributes traffic; Auto Scaling adjusts capacity",
+          "Both only manage DNS records",
+          "Auto Scaling replaces the need for health checks"
+        ],
+        answer: 1,
+        explanation:
+          "ELB routes traffic to healthy targets. Auto Scaling adds or removes instances based on demand or health."
+      },
+      {
+        id: "w4q16",
+        question:
+          "Whenever an image lands in S3, a short function should generate a thumbnail and exit. Which compute option fits best?",
+        options: [
+          "A always-on EC2 fleet sized for peak",
+          "AWS Lambda",
+          "A Dedicated Host",
+          "Amazon Lightsail only"
+        ],
+        answer: 1,
+        explanation:
+          "Lambda is ideal for brief, event-driven work with automatic scaling and no server management."
+      },
+      {
+        id: "w4q17",
+        question:
+          "What is the maximum duration of a standard AWS Lambda function invocation?",
+        options: ["1 minute", "5 minutes", "15 minutes", "24 hours"],
+        answer: 2,
+        explanation:
+          "A standard Lambda invocation can run for up to 15 minutes (900 seconds)."
+      },
+      {
+        id: "w4q18",
+        question:
+          "Developers need a private registry to store Docker images used by ECS tasks. Which service provides that registry?",
+        options: [
+          "Amazon ECR",
+          "Amazon EKS",
+          "AWS Fargate",
+          "Amazon EFS"
+        ],
+        answer: 0,
+        explanation:
+          "Amazon Elastic Container Registry (ECR) stores and shares container images."
+      },
+      {
+        id: "w4q19",
+        question:
+          "A platform team wants managed Kubernetes without operating the control plane themselves. Which service should they choose?",
+        options: [
+          "Amazon ECR",
+          "Amazon EKS",
+          "Amazon Lightsail",
+          "AWS Batch"
+        ],
+        answer: 1,
+        explanation:
+          "Amazon EKS provides a managed Kubernetes control plane so customers focus on workloads and workers."
+      },
+      {
+        id: "w4q20",
+        question:
+          "A team runs containers with Amazon ECS but does not want to manage EC2 worker instances. Which compute option removes that server management?",
+        options: [
+          "AWS Fargate",
+          "Amazon ECR",
+          "Dedicated Hosts",
+          "Gateway Load Balancer"
+        ],
+        answer: 0,
+        explanation:
+          "AWS Fargate runs containers without customers provisioning or managing the underlying EC2 hosts."
+      }
+    ]
   }
 ];

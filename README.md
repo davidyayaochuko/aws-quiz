@@ -29,7 +29,7 @@ Set these in **Site settings → Environment variables**:
 
 - `index.html` — page structure
 - `styles.css` — layout and visuals
-- `questions.js` — Week 1–3 question banks
+- `questions.js` — Week 1–4 question banks
 - `app.js` — quiz flow, scoring, feedback, email trigger
 - `netlify/functions/send-results.js` — emails result summary via Resend
 
