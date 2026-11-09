@@ -20,27 +20,12 @@
   const getTemplate = (id) =>
     document.querySelector(`#${id}`).content.cloneNode(true);
 
-  const shuffle = (items) => {
-    const result = [...items];
-    for (let index = result.length - 1; index > 0; index -= 1) {
-      const randomIndex = Math.floor(Math.random() * (index + 1));
-      [result[index], result[randomIndex]] = [result[randomIndex], result[index]];
-    }
-    return result;
-  };
-
-  const randomizeQuestion = (question) => {
-    const randomizedOptions = shuffle(
-      question.options.map((text, originalIndex) => ({ text, originalIndex }))
-    );
-    return {
+  // Questions and options stay in author order so every learner sees the same paper.
+  const cloneQuestions = (questions) =>
+    questions.map((question) => ({
       ...question,
-      options: randomizedOptions.map((option) => option.text),
-      answer: randomizedOptions.findIndex(
-        (option) => option.originalIndex === question.answer
-      )
-    };
-  };
+      options: [...question.options]
+    }));
 
   const getBestScore = (weekId) => {
     const value = Number(localStorage.getItem(`${STORAGE_PREFIX}${weekId}`));
@@ -131,6 +116,14 @@
     const view = getTemplate("dashboard-template");
     const grid = view.querySelector("#week-grid");
     window.QUIZ_DATA.forEach((week) => grid.append(makeWeekCard(week)));
+    const weekStat = view.querySelector("#stat-weeks");
+    const questionStat = view.querySelector("#stat-questions");
+    if (weekStat) weekStat.textContent = String(window.QUIZ_DATA.length);
+    if (questionStat) {
+      questionStat.textContent = String(
+        window.QUIZ_DATA.reduce((sum, week) => sum + week.questions.length, 0)
+      );
+    }
     setView(view);
 
     document.querySelector("#week-grid").addEventListener("click", (event) => {
@@ -151,6 +144,8 @@
     view.querySelector("#intro-week").textContent = `Week ${week.week}`;
     view.querySelector("#intro-title").textContent = week.title;
     view.querySelector("#intro-description").textContent = week.description;
+    const countEl = view.querySelector("#intro-count");
+    if (countEl) countEl.textContent = String(week.questions.length);
 
     const nameInput = view.querySelector("#student-name");
     const emailInput = view.querySelector("#student-email");
@@ -222,7 +217,7 @@
   };
 
   const startQuiz = () => {
-    state.questions = shuffle(state.week.questions).map(randomizeQuestion);
+    state.questions = cloneQuestions(state.week.questions);
     state.answers.clear();
     state.results = null;
 

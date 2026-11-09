@@ -2,985 +2,288 @@ window.QUIZ_DATA = [
   {
     id: "week-1",
     week: 1,
-    title: "Cloud Foundations & Economics",
+    title: "Orientation and safe setup",
     description:
-      "Review cloud value, financial models, service models, deployment approaches, and essential exam vocabulary.",
-    topics: ["Cloud value", "CapEx vs OpEx", "Service models", "Core vocabulary"],
+      "Course path, Class vs Lab Catch-up, AWS signup first, Azure later, and the money rules we will not break.",
+    topics: [
+      "Dual-cert path",
+      "Class vs lab",
+      "AWS Free Tier",
+      "Azure later",
+      "Cost rules"
+    ],
     questions: [
       {
         id: "w1q1",
         question:
-          "A company provisions test servers in minutes and deletes them after a two-day experiment. Which cloud characteristic is demonstrated most directly?",
+          "This Thrive Africa Cloud Foundations course prepares you for which two beginner exams?",
         options: [
-          "Long procurement cycles",
-          "On-demand resource availability",
-          "Fixed hardware ownership",
-          "Permanent capacity planning"
+          "AWS Solutions Architect Professional and Azure Administrator",
+          "AWS Certified Cloud Practitioner (CLF-C02) and Microsoft Azure Fundamentals (AZ-900)",
+          "CompTIA A+ and Network+",
+          "Only Kubernetes certifications"
         ],
         answer: 1,
         explanation:
-          "Cloud resources can be provisioned when needed and released afterward. This avoids waiting for hardware procurement and paying for permanent test capacity."
+          "The dual path is CLF-C02 and AZ-900. Both are beginner exams. Labs exist so scenario questions make sense."
       },
       {
         id: "w1q2",
         question:
-          "A finance director wants technology spending to rise and fall with actual usage. Which financial shift supports this goal?",
+          "In a normal week, what is Class day for, and what is Lab Catch-up for?",
         options: [
-          "OpEx to CapEx",
-          "Variable expense to fixed expense",
-          "CapEx to OpEx",
-          "Usage pricing to hardware ownership"
+          "Class day is for building everything; Lab Catch-up is only for watching videos",
+          "Class day teaches one idea; Lab Catch-up is for doing the work, a short quiz, and cleanup",
+          "Both days are only theory with no practice",
+          "Lab Catch-up is where all new theory is introduced"
         ],
-        answer: 2,
+        answer: 1,
         explanation:
-          "Cloud adoption commonly shifts spending from upfront capital purchases to operational expenses based on consumption."
+          "New theory stays on Class day. Catch-up is for doing, unblocking, the quiz, and deleting what you built."
       },
       {
         id: "w1q3",
         question:
-          "Which cost should be included when comparing an on-premises data center with AWS?",
+          "For Week 1 orientation, what should learners create first?",
         options: [
-          "Only server purchase prices",
-          "Only the monthly AWS estimate",
-          "Hardware, facilities, power, maintenance, and staffing",
-          "Only software-development salaries"
+          "An Azure free account and three virtual machines",
+          "An AWS account and Free Tier signup only",
+          "A Kubernetes cluster",
+          "A multi-region production network"
         ],
-        answer: 2,
+        answer: 1,
         explanation:
-          "A useful total cost of ownership comparison includes both direct and indirect lifecycle costs, not just hardware or the cloud bill."
+          "Take-home is AWS first. Azure free credit lasts about 30 days, so we open Azure later in the course."
       },
       {
         id: "w1q4",
         question:
-          "A business launches an application in another geographic market without constructing a local facility. Which cloud benefit is this?",
+          "Why do we wait before creating an Azure free account in this course?",
         options: [
-          "Go global quickly",
-          "Increase fixed expense",
-          "Purchase excess capacity",
-          "Manage more data centers"
-        ],
-        answer: 0,
-        explanation:
-          "AWS Regions allow organizations to deploy workloads near new markets without building their own facilities there."
-      },
-      {
-        id: "w1q5",
-        question:
-          "Why can a large cloud provider often offer lower variable costs than one company operating its own small data center?",
-        options: [
-          "Every cloud service is free",
-          "Economies of scale",
-          "Customers must purchase excess capacity",
-          "Cloud providers do not use physical hardware"
+          "Azure cannot be used for learning",
+          "The usual Azure free credit lasts about 30 days, so we start it closer to the Azure weeks",
+          "Azure has no free offer",
+          "AWS and Azure cannot be learned in the same course"
         ],
         answer: 1,
         explanation:
-          "AWS aggregates demand from many customers and operates at a scale that can produce efficiencies unavailable to many individual organizations."
+          "The Azure free credit is short (about one month). Signing up too early wastes the credit before you need Azure labs."
+      },
+      {
+        id: "w1q5",
+        question: "Which statement about Free Tier is true?",
+        options: [
+          "Free Tier means every resource is free forever",
+          "Free is not unlimited. A forgotten virtual machine can still create a bill",
+          "Free Tier removes the need for an email address",
+          "Free Tier turns off MFA permanently"
+        ],
+        answer: 1,
+        explanation:
+          "Free Tier has rules and limits. Leaving a machine running overnight is a common surprise bill."
       },
       {
         id: "w1q6",
         question:
-          "An online store automatically removes unneeded capacity after a flash sale ends. Which concept best describes this behavior?",
-        options: ["Agility", "Durability", "Elasticity", "Fault tolerance"],
-        answer: 2,
+          "Which money rule comes before launching any virtual machine?",
+        options: [
+          "Post the root password in the cohort chat",
+          "Create a budget with an email alert",
+          "Turn off all MFA",
+          "Use the largest instance size available"
+        ],
+        answer: 1,
         explanation:
-          "Elasticity means matching resources to changing demand, including scaling down when demand falls."
+          "A budget plus email alert is part of the grade. In this course, AWS alerts and cost monitoring are set in the lab after orientation."
       },
       {
         id: "w1q7",
-        question:
-          "A system can add more resources to support a growing number of users. Which term describes this capability?",
-        options: ["Scalability", "Durability", "Compliance", "Capital expenditure"],
-        answer: 0,
+        question: "What does cleanup mean in this course?",
+        options: [
+          "Leaving small resources running because they are cheap",
+          "Delete or deallocate lab resources, then confirm spend has stopped",
+          "Only closing the browser tab",
+          "Renaming the resource and keeping it forever"
+        ],
+        answer: 1,
         explanation:
-          "Scalability is the ability to increase or decrease capacity to meet workload demand."
+          "Cleanup is required. Small resources still cost money if you leave them."
       },
       {
         id: "w1q8",
         question:
-          "A stored object remains intact for years, although users briefly cannot access the service. Which quality does the intact object demonstrate?",
-        options: ["Availability", "Agility", "Durability", "Elasticity"],
-        answer: 2,
+          "Which tags should you put on every lab resource later in the course?",
+        options: [
+          "color=blue and size=large",
+          "course=cloud-foundations and owner=your-name",
+          "exam=skip and budget=none",
+          "public=true and mfa=off"
+        ],
+        answer: 1,
         explanation:
-          "Durability concerns whether data remains intact over time. Availability concerns whether the service can currently be accessed."
+          "Tags help you find and clean up course resources. Use course=cloud-foundations and owner=your-name."
       },
       {
         id: "w1q9",
         question:
-          "A web application continues serving users after one of its components fails. Which design quality is most clearly demonstrated?",
-        options: ["Variable expense", "Fault tolerance", "SaaS", "Agility"],
+          "How should you treat the AWS root user during the course?",
+        options: [
+          "Use root for every daily lab click",
+          "It is for emergencies. Turn on MFA. Use a separate daily user for lab work",
+          "Share the root password in WhatsApp for teamwork",
+          "Disable MFA so login is faster"
+        ],
         answer: 1,
         explanation:
-          "Fault tolerance is the ability to continue operating despite a component failure."
+          "Root is break-glass. MFA protects it. Daily labs use a separate user."
       },
       {
         id: "w1q10",
         question:
-          "Which statement best distinguishes high availability from durability?",
+          "Before you create a resource in the AWS console, what should you check first?",
         options: [
-          "Availability concerns service access; durability concerns data preservation",
-          "Availability concerns data preservation; durability concerns rapid deployment",
-          "They are two names for the same concept",
-          "Availability applies only on premises"
+          "The Region in the top corner",
+          "Whether CapEx is written on the screen",
+          "The Netflix homepage",
+          "Whether Azure is open in another tab"
         ],
         answer: 0,
         explanation:
-          "Availability measures whether a service is accessible, while durability measures the likelihood that stored data will not be lost."
-      },
-      {
-        id: "w1q11",
-        question:
-          "A team can create several environments, test an idea, and discard the unsuccessful versions within hours. Which benefit is emphasized?",
-        options: ["Agility", "Dedicated tenancy", "Durability", "Fixed capacity"],
-        answer: 0,
-        explanation:
-          "Agility is the ability to experiment, adapt, and deliver changes quickly."
-      },
-      {
-        id: "w1q12",
-        question:
-          "A company rents virtual machines and manages their operating systems and applications. Which service model is this?",
-        options: ["SaaS", "PaaS", "IaaS", "Hybrid SaaS"],
-        answer: 2,
-        explanation:
-          "Infrastructure as a Service supplies foundational infrastructure while the customer manages the guest operating system and applications."
-      },
-      {
-        id: "w1q13",
-        question:
-          "Developers want to deploy application code without managing the operating system or runtime platform. Which service model fits best?",
-        options: ["PaaS", "IaaS", "On-premises hardware", "Colocation"],
-        answer: 0,
-        explanation:
-          "Platform as a Service manages more of the application platform so developers can focus primarily on code and data."
-      },
-      {
-        id: "w1q14",
-        question:
-          "Employees use a complete customer-relationship application through a browser. The provider manages the entire application. Which model is this?",
-        options: ["IaaS", "SaaS", "PaaS", "Private subnet"],
-        answer: 1,
-        explanation:
-          "Software as a Service delivers a finished application to end users while the provider manages the underlying stack."
-      },
-      {
-        id: "w1q15",
-        question:
-          "Which option normally gives a customer the greatest control over the operating system?",
-        options: ["SaaS", "PaaS", "IaaS", "Managed email"],
-        answer: 2,
-        explanation:
-          "IaaS leaves operating-system and application management to the customer, providing more control than PaaS or SaaS."
-      },
-      {
-        id: "w1q16",
-        question:
-          "A workload runs partly in a company-owned data center and partly in AWS, with network connectivity between them. What deployment model is this?",
-        options: ["Cloud-only", "Hybrid", "SaaS-only", "Edge-only"],
-        answer: 1,
-        explanation:
-          "A hybrid architecture connects cloud resources with on-premises infrastructure."
-      },
-      {
-        id: "w1q17",
-        question:
-          "Which expense is the clearest example of capital expenditure?",
-        options: [
-          "Paying per request for a cloud function",
-          "A monthly cloud storage bill",
-          "Purchasing servers and cooling equipment upfront",
-          "Paying for compute by the second"
-        ],
-        answer: 2,
-        explanation:
-          "CapEx is money spent upfront to acquire long-lived assets such as servers and data-center equipment."
-      },
-      {
-        id: "w1q18",
-        question:
-          "Which cloud benefit reduces the risk of buying hardware that later sits unused?",
-        options: [
-          "Stop guessing capacity",
-          "Increase fixed costs",
-          "Use one permanent server size",
-          "Build additional facilities"
-        ],
-        answer: 0,
-        explanation:
-          "Cloud capacity can be adjusted as requirements change, reducing the need to predict and purchase peak capacity far in advance."
-      },
-      {
-        id: "w1q19",
-        question:
-          "Which statement about cloud computing is most accurate?",
-        options: [
-          "Cloud always costs less regardless of how resources are managed",
-          "Cloud eliminates the need for security controls",
-          "Cloud provides on-demand resources, but customers must still manage usage and cost",
-          "Cloud requires customers to own the physical servers"
-        ],
-        answer: 2,
-        explanation:
-          "Cloud offers flexibility and usage-based pricing, but poor architecture or unused resources can still create unnecessary cost."
-      },
-      {
-        id: "w1q20",
-        question:
-          "A company wants its engineers to focus on products rather than power, cooling, and physical server replacement. Which cloud advantage applies?",
-        options: [
-          "Stop spending money running data centers",
-          "Increase hardware procurement",
-          "Use only capital expenditure",
-          "Reduce service availability"
-        ],
-        answer: 0,
-        explanation:
-          "AWS manages physical facilities and hardware, allowing the customer to focus more effort on applications and business outcomes."
+          "If the Region is wrong, you may not find the thing you just created. Check Region before you create."
       }
     ]
   },
   {
     id: "week-2",
     week: 2,
-    title: "Global Infrastructure & AWS Access",
+    title: "What is cloud computing?",
     description:
-      "Practice Regions, Availability Zones, edge infrastructure, service scope, and AWS management interfaces.",
-    topics: ["Regions and AZs", "Edge services", "Service scope", "Access methods"],
+      "Cloud definition, benefits, CapEx vs OpEx, deployment models, IaaS/PaaS/SaaS, shared responsibility, HA, RTO, and RPO.",
+    topics: [
+      "What is cloud",
+      "Benefits",
+      "CapEx vs OpEx",
+      "IaaS PaaS SaaS",
+      "Shared responsibility"
+    ],
     questions: [
       {
         id: "w2q1",
-        question:
-          "A company must keep regulated records within a specific country. What should drive its initial AWS Region shortlist?",
+        question: "Cloud computing means:",
         options: [
-          "Data residency and compliance",
-          "The Region name",
-          "The number of IAM users",
-          "The support-plan color"
+          "Buying every server yourself and keeping it only under your desk",
+          "Renting computing over the internet instead of owning all the machines",
+          "Using only Wi-Fi with no computers involved",
+          "Deleting all your files so nothing is stored"
         ],
-        answer: 0,
+        answer: 1,
         explanation:
-          "Legal, regulatory, and data-residency requirements can restrict where data may be processed or stored, so they should be evaluated first."
+          "A provider owns the buildings and hardware. You use what you need over the internet and stop paying when you stop using it."
       },
       {
         id: "w2q2",
-        question:
-          "After compliance requirements are satisfied, which factor most directly affects response time for users?",
-        options: ["Latency", "Capital expenditure", "Account alias", "Billing currency"],
-        answer: 0,
+        question: "Which of these is a benefit of cloud?",
+        options: [
+          "You never need passwords again",
+          "Elasticity: grow and shrink with demand",
+          "The internet stops working when traffic rises",
+          "Cloud is always free for every workload"
+        ],
+        answer: 1,
         explanation:
-          "Network distance and routing influence latency, so proximity to users is an important Region-selection factor."
+          "Elasticity matches capacity to demand. Cloud is not always free, and security still matters."
       },
       {
         id: "w2q3",
-        question:
-          "Why should architects verify AWS service availability before choosing a Region?",
+        question: "CapEx means:",
         options: [
-          "Every service is global",
-          "Services and features can differ by Region",
-          "Regions cannot host databases",
-          "A Region contains only edge locations"
+          "Paying a monthly operating bill as you go",
+          "Upfront capital spend, such as buying servers",
+          "A free credit that never expires",
+          "Deleting unused resources"
         ],
         answer: 1,
         explanation:
-          "AWS services and newer features are not necessarily available in every Region, so required capabilities must be checked."
+          "Capital expenditure is the big upfront purchase. Buying servers or a generator is CapEx-like."
       },
       {
         id: "w2q4",
-        question:
-          "Which statement about AWS regional pricing is accurate?",
+        question: "OpEx means:",
         options: [
-          "All Regions always have identical prices",
-          "Region selection can affect service cost",
-          "Only global services have prices",
-          "Region selection affects latency but never cost"
+          "Buying a building once and never paying again",
+          "Ongoing operating spend, such as a monthly cloud bill",
+          "Only hardware costs",
+          "A type of virtual machine"
         ],
         answer: 1,
         explanation:
-          "Pricing can vary by Region because operating and market conditions differ."
+          "Operating expenditure is the ongoing bill. Cloud often looks like OpEx. OpEx is not free if the meter keeps running."
       },
       {
         id: "w2q5",
-        question:
-          "What is the relationship between a Region and an Availability Zone?",
-        options: [
-          "A Region contains multiple isolated Availability Zones",
-          "An Availability Zone contains multiple Regions",
-          "They are identical concepts",
-          "A Region is located inside one edge cache"
-        ],
-        answer: 0,
+        question: "Gmail or Outlook used in the browser is usually:",
+        options: ["IaaS", "PaaS", "SaaS", "Private cloud only"],
+        answer: 2,
         explanation:
-          "A Region is a geographic area containing multiple isolated Availability Zones connected by low-latency networking."
+          "You use a full application in the browser and mostly manage users and data. That is Software as a Service."
       },
       {
         id: "w2q6",
         question:
-          "An application runs all servers in one Availability Zone. Which event is it least prepared to withstand?",
-        options: [
-          "A failure affecting that Availability Zone",
-          "A user changing a password",
-          "A new AWS account being created",
-          "A billing report being generated"
-        ],
-        answer: 0,
+          "Linux virtual machines that you patch yourself, running your own app, are usually:",
+        options: ["SaaS", "IaaS", "Multi-cloud by default", "CapEx only"],
+        answer: 1,
         explanation:
-          "A single-AZ architecture depends on one failure domain. Multi-AZ redundancy can reduce that risk."
+          "You manage the guest operating system, the app, and the data. That is Infrastructure as a Service."
       },
       {
         id: "w2q7",
         question:
-          "Which design provides the strongest protection from the loss of one Availability Zone?",
+          "In the shared responsibility model, who usually owns your passwords, MFA, and how you configure access?",
         options: [
-          "Two servers in the same AZ",
-          "Redundant resources and replicated data across multiple AZs",
-          "One larger server",
-          "A second IAM user"
+          "Only the cloud provider",
+          "You (the customer)",
+          "Nobody",
+          "The electricity company"
         ],
         answer: 1,
         explanation:
-          "Multi-AZ resilience requires redundant resources, appropriate traffic routing, and data replication—not merely additional resources in one AZ."
+          "The provider secures the cloud. You secure what you put in it, including identity and configuration."
       },
       {
         id: "w2q8",
-        question:
-          "Two AWS accounts both display an Availability Zone named us-east-1a. Why might those names refer to different physical zones?",
+        question: "High availability (HA) means:",
         options: [
-          "AZ letter mappings can vary between accounts",
-          "Customers build their own Availability Zones",
-          "The Region changes every hour",
-          "AZ names identify edge locations"
+          "The app is deleted every night",
+          "Designing so the service can keep serving if a component fails",
+          "Using only one server forever",
+          "Never taking backups"
         ],
-        answer: 0,
+        answer: 1,
         explanation:
-          "AWS maps AZ letters independently across accounts. AZ IDs provide consistent physical-zone identifiers."
+          "HA keeps the service up when a part fails, for example two web servers so one can fail."
       },
       {
         id: "w2q9",
-        question:
-          "Which identifier consistently refers to the same physical Availability Zone across AWS accounts?",
-        options: ["Account alias", "AZ ID", "Bucket name", "Access key ID"],
+        question: "RPO (Recovery Point Objective) is about:",
+        options: [
+          "How quickly you must restore the service",
+          "How much data loss (in time) you can accept",
+          "How many users you have",
+          "The colour of the console"
+        ],
         answer: 1,
         explanation:
-          "An AZ ID, such as use1-az1, consistently identifies a physical Availability Zone across accounts."
+          "RPO is the acceptable data-loss window. RTO is how quickly you must restore the service."
       },
       {
         id: "w2q10",
         question:
-          "A media company wants cached videos delivered from locations near viewers worldwide. Which infrastructure is most relevant?",
-        options: [
-          "Edge locations",
-          "Dedicated Hosts",
-          "IAM groups",
-          "Private subnets only"
-        ],
-        answer: 0,
-        explanation:
-          "CloudFront and related services use edge locations to deliver content closer to users."
-      },
-      {
-        id: "w2q11",
-        question:
-          "Which statement about edge locations is correct?",
-        options: [
-          "They replace Regions for all AWS workloads",
-          "They provide general-purpose access to every AWS service",
-          "They support low-latency content and network delivery near users",
-          "They exist only inside customer data centers"
-        ],
-        answer: 2,
-        explanation:
-          "Edge locations bring selected delivery and networking capabilities closer to users; they are not general-purpose Regions."
-      },
-      {
-        id: "w2q12",
-        question:
-          "A real-time application needs selected AWS services close to users in a major city. Which offering best fits?",
-        options: ["AWS Local Zones", "AWS Artifact", "AWS Budgets", "AWS Organizations"],
-        answer: 0,
-        explanation:
-          "Local Zones place selected compute, storage, and other services near major population or industry centers."
-      },
-      {
-        id: "w2q13",
-        question:
-          "A mobile application needs extremely low latency from within a telecommunications provider's 5G network. Which offering should be considered?",
-        options: ["AWS Outposts", "AWS Wavelength", "AWS CloudFormation", "Amazon EBS"],
+          "True or false: using more than one public cloud (multi-cloud) always means better reliability by default.",
+        options: ["True", "False", "Only on weekends", "Only for email"],
         answer: 1,
         explanation:
-          "AWS Wavelength places selected AWS services within telecommunications providers' 5G networks."
-      },
-      {
-        id: "w2q14",
-        question:
-          "A factory requires AWS-managed infrastructure physically installed at its own facility. Which offering is designed for this?",
-        options: ["AWS Outposts", "Edge locations", "AWS Wavelength", "Amazon Route 53"],
-        answer: 0,
-        explanation:
-          "AWS Outposts extends AWS infrastructure and services into a customer's on-premises location."
-      },
-      {
-        id: "w2q15",
-        question:
-          "Which resource is zonal rather than regional or global?",
-        options: [
-          "An Amazon EBS volume",
-          "An IAM user",
-          "A CloudFront distribution",
-          "A Route 53 hosted zone"
-        ],
-        answer: 0,
-        explanation:
-          "An EBS volume is created in one Availability Zone and must attach to an EC2 instance in that same AZ."
-      },
-      {
-        id: "w2q16",
-        question:
-          "Which resource is normally created within a selected AWS Region?",
-        options: [
-          "A Lambda function",
-          "An IAM user",
-          "A Route 53 domain registration",
-          "A CloudFront distribution"
-        ],
-        answer: 0,
-        explanation:
-          "Lambda functions are regional resources. IAM, Route 53, and CloudFront are common global-service examples for this exam."
-      },
-      {
-        id: "w2q17",
-        question:
-          "An administrator wants a visual, point-and-click interface for occasional AWS tasks. Which access method is most suitable?",
-        options: [
-          "AWS Management Console",
-          "AWS SDK",
-          "An Availability Zone",
-          "A route table"
-        ],
-        answer: 0,
-        explanation:
-          "The AWS Management Console is the browser-based graphical interface for managing AWS."
-      },
-      {
-        id: "w2q18",
-        question:
-          "An operations team wants to automate a repeated AWS task from a terminal script. What should it use?",
-        options: ["AWS CLI", "AWS Management Console only", "AWS Outposts", "An edge location"],
-        answer: 0,
-        explanation:
-          "The AWS Command Line Interface supports terminal commands and automation scripts."
-      },
-      {
-        id: "w2q19",
-        question:
-          "A Java application must create objects in Amazon S3 through code. Which tool is the best fit?",
-        options: ["AWS SDK for Java", "AWS Local Zones", "AWS Pricing Calculator", "AWS Artifact"],
-        answer: 0,
-        explanation:
-          "AWS SDKs provide language-specific libraries that applications use to call AWS service APIs."
-      },
-      {
-        id: "w2q20",
-        question:
-          "A tutor needs a browser-based terminal that is already authenticated to the AWS account. Which service is designed for this?",
-        options: ["AWS CloudShell", "Amazon CloudFront", "AWS Wavelength", "Amazon ECR"],
-        answer: 0,
-        explanation:
-          "AWS CloudShell provides a browser-based shell with common tools and AWS credentials from the current console session."
-      }
-    ]
-  },
-  {
-    id: "week-3",
-    week: 3,
-    title: "Well-Architected, CAF & Migration",
-    description:
-      "Apply architecture pillars, cloud-adoption capabilities, migration strategies, and AWS transfer services.",
-    topics: ["Six pillars", "AWS CAF", "Migration 7 Rs", "Transfer services"],
-    questions: [
-      {
-        id: "w3q1",
-        question:
-          "A team regularly reviews operational procedures, learns from failures, and makes small improvements. Which Well-Architected pillar is emphasized?",
-        options: [
-          "Operational Excellence",
-          "Cost Optimization",
-          "Sustainability",
-          "Performance Efficiency"
-        ],
-        answer: 0,
-        explanation:
-          "Operational Excellence focuses on running and monitoring systems and continually improving processes and procedures."
-      },
-      {
-        id: "w3q2",
-        question:
-          "A workload encrypts sensitive records and grants users only the permissions required for their jobs. Which pillar is most relevant?",
-        options: ["Reliability", "Security", "Sustainability", "Performance Efficiency"],
-        answer: 1,
-        explanation:
-          "The Security pillar includes protecting data and systems, managing identities, and applying least privilege."
-      },
-      {
-        id: "w3q3",
-        question:
-          "An application automatically recovers after an infrastructure disruption and continues meeting demand. Which pillar does this demonstrate?",
-        options: ["Reliability", "Cost Optimization", "Business", "Sustainability"],
-        answer: 0,
-        explanation:
-          "Reliability includes recovering from disruptions and dynamically acquiring resources to meet demand."
-      },
-      {
-        id: "w3q4",
-        question:
-          "A team evaluates newer instance types to achieve the required performance with fewer resources. Which pillar is emphasized?",
-        options: [
-          "Performance Efficiency",
-          "Security",
-          "Operational Excellence",
-          "Governance"
-        ],
-        answer: 0,
-        explanation:
-          "Performance Efficiency concerns using computing resources efficiently and adapting as technology and demand change."
-      },
-      {
-        id: "w3q5",
-        question:
-          "A company identifies idle resources and removes them without reducing business value. Which pillar is being applied?",
-        options: ["Reliability", "Cost Optimization", "Security", "People"],
-        answer: 1,
-        explanation:
-          "Cost Optimization is about delivering value while avoiding unnecessary expenditure."
-      },
-      {
-        id: "w3q6",
-        question:
-          "An engineering team reduces unnecessary data processing to lower the environmental impact of a workload. Which pillar applies?",
-        options: ["Sustainability", "Security", "Reliability", "Platform"],
-        answer: 0,
-        explanation:
-          "The Sustainability pillar focuses on minimizing the environmental impact of cloud workloads."
-      },
-      {
-        id: "w3q7",
-        question:
-          "What does the AWS Well-Architected Tool help a team do?",
-        options: [
-          "Review workloads and record architecture risks",
-          "Purchase Reserved Instances automatically",
-          "Register domain names",
-          "Transfer physical servers"
-        ],
-        answer: 0,
-        explanation:
-          "The tool guides workload reviews against Well-Architected questions and records identified risks and improvements."
-      },
-      {
-        id: "w3q8",
-        question:
-          "A healthcare workload needs additional guidance for industry-specific architecture concerns. What extends the Well-Architected Framework for focused use cases?",
-        options: ["Lenses", "Access keys", "Edge caches", "Savings Plans"],
-        answer: 0,
-        explanation:
-          "Well-Architected lenses provide additional questions and best practices for specific technologies or industries."
-      },
-      {
-        id: "w3q9",
-        question:
-          "Which AWS CAF perspective is most concerned with linking cloud investment to measurable business outcomes?",
-        options: ["Business", "Platform", "Security", "Operations"],
-        answer: 0,
-        explanation:
-          "The Business perspective helps ensure cloud investments support transformation goals and business value."
-      },
-      {
-        id: "w3q10",
-        question:
-          "A company is addressing cloud skills, culture, leadership, and organizational change. Which AWS CAF perspective applies?",
-        options: ["People", "Governance", "Platform", "Security"],
-        answer: 0,
-        explanation:
-          "The People perspective covers culture, organizational structure, leadership, workforce, and change management."
-      },
-      {
-        id: "w3q11",
-        question:
-          "Which AWS CAF perspective focuses on orchestrating cloud initiatives while controlling organizational risk?",
-        options: ["Governance", "People", "Platform", "Operations"],
-        answer: 0,
-        explanation:
-          "The Governance perspective aligns cloud initiatives while managing benefits, risks, and compliance."
-      },
-      {
-        id: "w3q12",
-        question:
-          "Which sequence correctly represents the AWS CAF transformation phases?",
-        options: [
-          "Envision, align, launch, scale",
-          "Purchase, install, patch, retire",
-          "Discover, invoice, support, close",
-          "Design, reserve, encrypt, delete"
-        ],
-        answer: 0,
-        explanation:
-          "AWS CAF describes the iterative transformation phases as envision, align, launch, and scale."
-      },
-      {
-        id: "w3q13",
-        question:
-          "A company moves a server-based application to AWS with no meaningful code changes. Which migration strategy is this?",
-        options: ["Rehost", "Refactor", "Repurchase", "Retire"],
-        answer: 0,
-        explanation:
-          "Rehost is the classic lift-and-shift approach: move the workload with minimal changes."
-      },
-      {
-        id: "w3q14",
-        question:
-          "During migration, a team moves its database to a managed service but avoids redesigning the entire application. Which strategy is this?",
-        options: ["Retain", "Replatform", "Retire", "Relocate"],
-        answer: 1,
-        explanation:
-          "Replatform introduces targeted cloud optimizations without a full application rewrite."
-      },
-      {
-        id: "w3q15",
-        question:
-          "A legacy monolith is redesigned into cloud-native services to gain scalability and agility. Which migration strategy applies?",
-        options: ["Rehost", "Retain", "Refactor", "Relocate"],
-        answer: 2,
-        explanation:
-          "Refactor, also called re-architect, significantly changes an application to use cloud-native capabilities."
-      },
-      {
-        id: "w3q16",
-        question:
-          "A business replaces an internally developed HR application with a subscription SaaS product. Which strategy is this?",
-        options: ["Repurchase", "Rehost", "Retire", "Relocate"],
-        answer: 0,
-        explanation:
-          "Repurchase means moving to a different product, often replacing an existing application with SaaS."
-      },
-      {
-        id: "w3q17",
-        question:
-          "A team postpones moving a legacy system because a required dependency cannot yet operate in AWS. Which strategy applies for now?",
-        options: ["Retain", "Retire", "Refactor", "Repurchase"],
-        answer: 0,
-        explanation:
-          "Retain means keeping a workload in its current environment for now, often because migration is not currently practical or valuable."
-      },
-      {
-        id: "w3q18",
-        question:
-          "Which AWS service is designed to automate rehosting physical or virtual servers to AWS?",
-        options: [
-          "AWS Application Migration Service",
-          "AWS Database Migration Service",
-          "AWS Artifact",
-          "Amazon CloudFront"
-        ],
-        answer: 0,
-        explanation:
-          "AWS Application Migration Service, or MGN, simplifies lift-and-shift server migration to AWS."
-      },
-      {
-        id: "w3q19",
-        question:
-          "A company needs an online service that repeatedly transfers files from on-premises storage to Amazon S3. Which service is the best fit?",
-        options: ["AWS DataSync", "AWS Snowball", "AWS IAM", "Amazon Route 53"],
-        answer: 0,
-        explanation:
-          "AWS DataSync automates and accelerates online movement of data between on-premises storage and AWS storage services."
-      },
-      {
-        id: "w3q20",
-        question:
-          "A remote site must move hundreds of terabytes to AWS, but its network connection is too slow. Which solution is most appropriate?",
-        options: ["AWS Snow Family", "AWS CloudShell", "AWS Budgets", "AWS WAF"],
-        answer: 0,
-        explanation:
-          "AWS Snow Family devices support offline data transfer when network bandwidth is insufficient for a practical online migration."
-      }
-    ]
-  },
-  {
-    id: "week-4",
-    week: 4,
-    title: "Compute on AWS",
-    description:
-      "Practice EC2 foundations, instance families, purchasing options, load balancing, Auto Scaling, Lambda, and containers.",
-    topics: ["EC2", "Pricing", "ELB & Auto Scaling", "Lambda & containers"],
-    questions: [
-      {
-        id: "w4q1",
-        question:
-          "A team needs resizable virtual servers where it controls the guest operating system and installed software. Which service fits?",
-        options: [
-          "Amazon EC2",
-          "Amazon S3",
-          "Amazon Route 53",
-          "AWS Budgets"
-        ],
-        answer: 0,
-        explanation:
-          "Amazon EC2 provides virtual machines (instances). Customers manage the guest OS, patches, and applications on those instances."
-      },
-      {
-        id: "w4q2",
-        question:
-          "Before launching an EC2 instance, an engineer chooses a template that already includes an operating system and baseline software. What is that template called?",
-        options: [
-          "A security group",
-          "An Amazon Machine Image (AMI)",
-          "A placement group",
-          "A target group"
-        ],
-        answer: 1,
-        explanation:
-          "An AMI is the launch template for an instance. It defines the starting OS and can include software and configuration."
-      },
-      {
-        id: "w4q3",
-        question:
-          "At launch, an administrator wants a small script to install a web server automatically. Which EC2 feature supports this?",
-        options: [
-          "Reserved Instance purchase",
-          "Elastic IP only",
-          "User data",
-          "CloudFront distribution"
-        ],
-        answer: 2,
-        explanation:
-          "User data can run startup scripts during instance boot to install packages and configure services."
-      },
-      {
-        id: "w4q4",
-        question:
-          "A development website needs balanced CPU, memory, and networking with no extreme resource demand. Which instance-family category is the best first choice?",
-        options: [
-          "Accelerated computing",
-          "Storage optimized",
-          "Memory optimized",
-          "General purpose"
-        ],
-        answer: 3,
-        explanation:
-          "General-purpose families are designed for balanced workloads such as many web and development servers."
-      },
-      {
-        id: "w4q5",
-        question:
-          "A modeling job spends almost all of its time on CPU calculations and has ordinary memory needs. Which family is most appropriate?",
-        options: [
-          "Compute optimized",
-          "Memory optimized",
-          "Storage optimized",
-          "General purpose"
-        ],
-        answer: 0,
-        explanation:
-          "Compute-optimized instances prioritize CPU performance for calculation-heavy workloads."
-      },
-      {
-        id: "w4q6",
-        question:
-          "An application keeps a large working dataset in memory for low-latency lookups. Which family category fits best?",
-        options: [
-          "Compute optimized",
-          "Memory optimized",
-          "General purpose",
-          "Accelerated computing"
-        ],
-        answer: 1,
-        explanation:
-          "Memory-optimized instances provide large memory capacity for in-memory databases and caches."
-      },
-      {
-        id: "w4q7",
-        question:
-          "A pilot project will run for two weeks with uncertain traffic and no willingness to commit for a year. Which purchasing option fits?",
-        options: [
-          "Reserved Instances",
-          "Dedicated Hosts",
-          "On-Demand Instances",
-          "Compute Savings Plans only"
-        ],
-        answer: 2,
-        explanation:
-          "On-Demand has no long-term commitment and suits short-term or unpredictable usage."
-      },
-      {
-        id: "w4q8",
-        question:
-          "A company can forecast consistent compute spend and wants discounts that can apply across eligible EC2, Fargate, and Lambda usage. Which option is a strong match?",
-        options: [
-          "Spot Instances",
-          "Compute Savings Plans",
-          "Dedicated Instances only",
-          "Application Load Balancer"
-        ],
-        answer: 1,
-        explanation:
-          "Compute Savings Plans commit to a consistent $/hour of compute usage and can cover multiple eligible compute services."
-      },
-      {
-        id: "w4q9",
-        question:
-          "Overnight video-encoding jobs can checkpoint and resume if a worker stops. Which purchasing option can reduce cost the most for this pattern?",
-        options: [
-          "Spot Instances",
-          "Dedicated Hosts",
-          "On-Demand Capacity Reservations only",
-          "Reserved Instances for databases that cannot restart"
-        ],
-        answer: 0,
-        explanation:
-          "Spot uses spare capacity at a discount and is appropriate for fault-tolerant, interruptible workloads."
-      },
-      {
-        id: "w4q10",
-        question:
-          "Compliance requires visibility into the physical server and use of existing per-socket licenses. Which option is most relevant?",
-        options: [
-          "Spot Instances",
-          "AWS Lambda",
-          "Dedicated Hosts",
-          "Amazon ECR"
-        ],
-        answer: 2,
-        explanation:
-          "Dedicated Hosts provide an entire physical host, which supports some server-bound licensing and isolation needs."
-      },
-      {
-        id: "w4q11",
-        question:
-          "Customers reach one DNS name, and traffic must be spread across several healthy application servers. Which service’s primary job is this?",
-        options: [
-          "AWS Auto Scaling",
-          "Elastic Load Balancing",
-          "Amazon ECR",
-          "AWS Batch"
-        ],
-        answer: 1,
-        explanation:
-          "Elastic Load Balancing distributes incoming traffic across healthy registered targets."
-      },
-      {
-        id: "w4q12",
-        question:
-          "A microservices app must route HTTPS requests by URL path to different target groups. Which load balancer is designed for that?",
-        options: [
-          "Network Load Balancer",
-          "Gateway Load Balancer",
-          "Application Load Balancer",
-          "Classic only with UDP"
-        ],
-        answer: 2,
-        explanation:
-          "Application Load Balancers operate at Layer 7 and support HTTP/HTTPS host and path-based routing."
-      },
-      {
-        id: "w4q13",
-        question:
-          "A gaming backend needs ultra-low latency TCP traffic handling at very high connection rates. Which load balancer is commonly chosen?",
-        options: [
-          "Application Load Balancer",
-          "Network Load Balancer",
-          "Gateway Load Balancer",
-          "AWS Elastic Beanstalk"
-        ],
-        answer: 1,
-        explanation:
-          "Network Load Balancers operate at Layer 4 and are built for high-performance TCP/UDP workloads."
-      },
-      {
-        id: "w4q14",
-        question:
-          "An Auto Scaling group is configured with minimum 2, desired 4, and maximum 10. How many instances does it try to keep running initially?",
-        options: ["2", "4", "10", "16"],
-        answer: 1,
-        explanation:
-          "Desired capacity is the count the group attempts to maintain unless scaling policies change it within min/max bounds."
-      },
-      {
-        id: "w4q15",
-        question:
-          "Which statement correctly separates Elastic Load Balancing from EC2 Auto Scaling?",
-        options: [
-          "ELB changes instance count; Auto Scaling stores AMIs",
-          "ELB distributes traffic; Auto Scaling adjusts capacity",
-          "Both only manage DNS records",
-          "Auto Scaling replaces the need for health checks"
-        ],
-        answer: 1,
-        explanation:
-          "ELB routes traffic to healthy targets. Auto Scaling adds or removes instances based on demand or health."
-      },
-      {
-        id: "w4q16",
-        question:
-          "Whenever an image lands in S3, a short function should generate a thumbnail and exit. Which compute option fits best?",
-        options: [
-          "A always-on EC2 fleet sized for peak",
-          "AWS Lambda",
-          "A Dedicated Host",
-          "Amazon Lightsail only"
-        ],
-        answer: 1,
-        explanation:
-          "Lambda is ideal for brief, event-driven work with automatic scaling and no server management."
-      },
-      {
-        id: "w4q17",
-        question:
-          "What is the maximum duration of a standard AWS Lambda function invocation?",
-        options: ["1 minute", "5 minutes", "15 minutes", "24 hours"],
-        answer: 2,
-        explanation:
-          "A standard Lambda invocation can run for up to 15 minutes (900 seconds)."
-      },
-      {
-        id: "w4q18",
-        question:
-          "Developers need a private registry to store Docker images used by ECS tasks. Which service provides that registry?",
-        options: [
-          "Amazon ECR",
-          "Amazon EKS",
-          "AWS Fargate",
-          "Amazon EFS"
-        ],
-        answer: 0,
-        explanation:
-          "Amazon Elastic Container Registry (ECR) stores and shares container images."
-      },
-      {
-        id: "w4q19",
-        question:
-          "A platform team wants managed Kubernetes without operating the control plane themselves. Which service should they choose?",
-        options: [
-          "Amazon ECR",
-          "Amazon EKS",
-          "Amazon Lightsail",
-          "AWS Batch"
-        ],
-        answer: 1,
-        explanation:
-          "Amazon EKS provides a managed Kubernetes control plane so customers focus on workloads and workers."
-      },
-      {
-        id: "w4q20",
-        question:
-          "A team runs containers with Amazon ECS but does not want to manage EC2 worker instances. Which compute option removes that server management?",
-        options: [
-          "AWS Fargate",
-          "Amazon ECR",
-          "Dedicated Hosts",
-          "Gateway Load Balancer"
-        ],
-        answer: 0,
-        explanation:
-          "AWS Fargate runs containers without customers provisioning or managing the underlying EC2 hosts."
+          "Multi-cloud adds accounts, bills, and complexity. Reliability must be designed. It is not automatic."
       }
     ]
   }

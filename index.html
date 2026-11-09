@@ -5,9 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
-      content="AWS Cloud Practitioner practice exams with immediate feedback and emailed results."
+      content="Thrive Africa Cloud Foundations weekly quizzes with immediate feedback and emailed results."
     />
-    <title>AWS Cloud Practitioner Practice Exams</title>
+    <title>Thrive Africa Cloud Foundations Quizzes</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -18,15 +18,15 @@
   </head>
   <body>
     <header class="site-header">
-      <a class="brand" href="#" aria-label="AWS practice exams home">
-        <span class="brand-mark">AWS</span>
+      <a class="brand" href="#" aria-label="Thrive Africa quizzes home">
+        <span class="brand-mark">TA</span>
         <span>
-          <strong>Practice Exams</strong>
-          <small>Cloud Practitioner</small>
+          <strong>Cloud Foundations</strong>
+          <small>Thrive Africa</small>
         </span>
       </a>
       <div class="header-progress" id="header-progress" hidden>
-        <span id="progress-label">Question 1 of 20</span>
+        <span id="progress-label">Question 1 of 10</span>
         <div
           class="progress-track"
           role="progressbar"
@@ -43,25 +43,25 @@
     <main id="app" tabindex="-1"></main>
 
     <footer class="site-footer">
-      <p>Independent study tool. AWS is a trademark of Amazon.com, Inc.</p>
+      <p>Thrive Africa Cloud Foundations. AWS and Azure are trademarks of their owners.</p>
     </footer>
 
     <template id="dashboard-template">
       <section class="dashboard">
         <div class="hero">
           <div class="hero-copy">
-            <p class="eyebrow">AWS Cloud Practitioner</p>
-            <h1>Practice exams built for learning.</h1>
+            <p class="eyebrow">Thrive Africa · Cloud Foundations</p>
+            <h1>Weekly quizzes built for learning.</h1>
             <p class="hero-description">
-              Choose a week, complete 20 questions, get instant explanations,
-              and receive your full results by email after you submit.
+              Choose a week, answer the same fixed question set as your classmates,
+              get instant explanations, and receive your full results by email after you submit.
             </p>
           </div>
           <div class="hero-stat" aria-label="Quiz format">
-            <strong>4</strong>
-            <span>weekly exams</span>
+            <strong id="stat-weeks">2</strong>
+            <span>weekly quizzes</span>
             <div></div>
-            <strong>80</strong>
+            <strong id="stat-questions">20</strong>
             <span>practice questions</span>
           </div>
         </div>
@@ -87,7 +87,7 @@
           <h1 id="intro-title"></h1>
           <p id="intro-description"></p>
           <div class="quiz-facts">
-            <div><strong>20</strong><span>questions</span></div>
+            <div><strong id="intro-count">10</strong><span>questions</span></div>
             <div><strong>70%</strong><span>target score</span></div>
             <div><strong>Email</strong><span>results copy</span></div>
           </div>
